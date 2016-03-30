@@ -20,8 +20,9 @@ app.use(function(req, res, next) {
 });
 
 // bodyParser Middleware to allow different encoding requests
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json()); // to support JSON-encoded bodies
+
 
 // Routes API
 var router = express.Router()

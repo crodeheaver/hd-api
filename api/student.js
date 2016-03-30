@@ -27,15 +27,12 @@ module.exports.getAllStudents = function (req, res) {
 }
 
 module.exports.addStudent = function (req, res) {
-  console.log(req.body)
-  console.log(req.params)
-  console.log(req.query)
-  new Student(req.params.student)
+  new Student(req.body.data)
     .save()
     .then(function (student) {
       console.log("POST /student/")
       console.log(student)
-      res.sendStatus(201)
+      res.status(201).json({ data:student });
     })
     .catch(function (err) {
       res.send(err)
