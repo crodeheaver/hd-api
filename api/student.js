@@ -5,7 +5,6 @@ module.exports.getStudent = function (req, res, id) {
     .exec()
     .then(function (student) {
       console.log("GET /student/"+id)
-      console.log(student)
       res.json({data: student})
     })
     .catch(function (err) {
@@ -31,7 +30,6 @@ module.exports.addStudent = function (req, res) {
     .save()
     .then(function (student) {
       console.log("POST /student/")
-      console.log(student)
       res.status(201).json({ data:student });
     })
     .catch(function (err) {
@@ -40,10 +38,10 @@ module.exports.addStudent = function (req, res) {
 }
 
 module.exports.updateStudent = function (req, res, id) {
-  Student.findByIdAndUpdate(id, {$set: req.body.student})
+  Student.findByIdAndUpdate(id, {$set: req.body.data})
     .exec()
     .then(function (student) {
-      res.json({student: student})
+      res.json({data: student})
     })
     .catch(function (err) {
       res.send(err)
@@ -54,7 +52,7 @@ module.exports.deleteStudent = function (req, res, id) {
   Student.findByIdAndRemove(id)
     .exec()
     .then(function (student) {
-      res.json({student: student})
+      res.json({data: student})
     })
     .catch(function (err) {
       res.send(err)
