@@ -1,15 +1,18 @@
-var Student = require('../models/student')
+var mongoose = require('mongoose')
+var Student = mongoose.model('Student')
+var Gpa = mongoose.model('Gpa')
 var util = require('util');
 module.exports.getStudent = function (req, res, id) {
-  Student.findOne({ _id: id })
-    .exec()
-    .then(function (student) {
-      console.log("GET /student/"+id)
-      res.json({data: student})
-    })
-    .catch(function (err) {
-      res.send(err)
-    })
+  Student
+  .findOne({ _id: id })
+  .exec()
+  .then(function (student) {
+    console.log("GET /student/"+id)
+    res.json({data: student})
+  })
+  .catch(function (err) {
+    res.send(err)
+  })
 }
 
 module.exports.getAllStudents = function (req, res) {
@@ -41,7 +44,8 @@ module.exports.updateStudent = function (req, res, id) {
   Student.findByIdAndUpdate(id, {$set: req.body.data})
     .exec()
     .then(function (student) {
-      res.json({data: student})
+      console.log("PATCH /student/"+id)
+      res.status(200).res.json({data: student})
     })
     .catch(function (err) {
       res.send(err)

@@ -18,7 +18,7 @@ for (var i = 0; i < 10; i++) {
       "highshool-name": faker.name.firstName(),
       "is-sda": faker.random.boolean(),
       "bgcheck-date": faker.date.recent(),
-      "gpa": [ faker.random.number() ],
+      "gpa": [],
       "prov-autobiography": faker.random.boolean(),
       "prov-educ125": faker.name.firstName(),
       "prov-application": faker.random.boolean(),
@@ -42,12 +42,6 @@ for (var i = 0; i < 10; i++) {
       "cand-educ218": faker.name.firstName(),
       "cand-educ225": faker.name.firstName(),
       "cand-comments": faker.name.firstName(),
-      "cand-ppstreading": [{ DateTaken: faker.date.recent(), Score: faker.random.number() }],
-      "cand-ppstwriting": [{ DateTaken: faker.date.recent(), Score: faker.random.number() }],
-      "cand-ppstmathematics": [{ DateTaken: faker.date.recent(), Score: faker.random.number() }],
-      "cand-corereading": [{ DateTaken: faker.date.recent(), Score: faker.random.number() }],
-      "cand-corewriting": [{ DateTaken: faker.date.recent(), Score: faker.random.number() }],
-      "cand-coremathematics": [{ DateTaken: faker.date.recent(), Score: faker.random.number() }],
       "pre-studteachap": faker.random.boolean(),
       "pre-recommendation": faker.random.boolean(),
       "pre-bgcheck": faker.random.boolean(),
@@ -76,21 +70,7 @@ for (var i = 0; i < 10; i++) {
       "stu-praxII-name": faker.name.firstName(),
       "stu-praxII-datetaken": faker.date.recent(),
       "stu-praxII-score": faker.random.number(),
-      "stu-fs-schoolname": faker.name.firstName(),
-      "stu-fs-teachername": faker.name.firstName(),
-      "stu-fs-dates": faker.date.recent(),
-      "stu-fs-contract": faker.random.boolean(),
-      "stu-fs-practicum": faker.random.boolean(),
-      "stu-fs-cteval": faker.random.boolean(),
-      "stu-fs-ctrq": faker.random.boolean(),
-      "stu-ss-schoolname": faker.name.firstName(),
-      "stu-ss-teachername": faker.name.firstName(),
-      "stu-ss-dates": faker.date.recent(),
-      "stu-ss-contract": faker.random.boolean(),
-      "stu-ss-practicum": faker.random.boolean(),
-      "stu-ss-cteval": faker.random.boolean(),
-      "stu-ss-ctrq": faker.random.boolean()
-    }
+      }
   })
   newStudent.save()
     .then(function (v) {

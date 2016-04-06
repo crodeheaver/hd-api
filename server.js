@@ -4,7 +4,7 @@
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
-
+var glob = require('glob')
 // set our port
 var port = process.env.PORT || 3000
 
@@ -19,9 +19,21 @@ app.use(function(req, res, next) {
     next();
 });
 
+// app.use (function(req, res, next){
+//   res.respond = function (type, data) {
+//      res.json({ data: })
+//    }
+//    next();
+// })
+
 // bodyParser Middleware to allow different encoding requests
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }))
+
+var models = glob.sync('./models/*.js')
+models.forEach(function (model) {
+  require(model)
+})
 
 
 // Routes API
@@ -29,7 +41,7 @@ var router = express.Router()
 app.use('/', router)
 require('./app/routes')(router) // configure our routes
 
-require('./faker-maker')
+//require('./faker-maker')
 
 // startup our app at http://localhost:3000
 app.listen(port)
