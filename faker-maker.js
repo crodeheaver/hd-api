@@ -1,6 +1,6 @@
 var faker = require('faker')
 var mongoose = require('mongoose')
-var Student = require('./models/student')
+var Student = mongoose.model('Student')
 
 var grade = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']
 

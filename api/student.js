@@ -45,7 +45,7 @@ module.exports.updateStudent = function (req, res, id) {
     .exec()
     .then(function (student) {
       console.log("PATCH /student/"+id)
-      res.status(200).res.json({data: student})
+      res.json({data: student})
     })
     .catch(function (err) {
       res.send(err)
